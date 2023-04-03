@@ -1,8 +1,8 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { HttpService } from '@nestjs/axios';
 import { AxiosError } from 'axios';
-import { CommitsResult } from './entities/commit_result';
-import { Commit } from './entities/commit_result.interface';
+import { CommitResponse } from './entities/commit_response';
+import { Commit } from './entities/__external__commit.interface';
 import { catchError, firstValueFrom } from 'rxjs';
 
 @Injectable()
@@ -10,7 +10,7 @@ export class CommitsService {
   private readonly logger = new Logger(CommitsService.name);
   constructor(private readonly httpService: HttpService) {}
 
-  async findAll(repo: string, owner: string): Promise<CommitsResult> {
+  async findAll(repo: string, owner: string): Promise<CommitResponse> {
     const { data } = await firstValueFrom(
       this.httpService.get<Commit[]>(`/repos/${owner}/${repo}/commits`).pipe(
         catchError((error: AxiosError) => {
