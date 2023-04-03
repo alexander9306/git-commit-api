@@ -1,9 +1,11 @@
 import { Injectable } from '@nestjs/common';
 import { CreateCommitDto } from './dto/create-commit.dto';
-import { UpdateCommitDto } from './dto/update-commit.dto';
+import { HttpService } from '@nestjs/axios';
 
 @Injectable()
 export class CommitsService {
+  constructor(private readonly httpService: HttpService) {}
+
   create(createCommitDto: CreateCommitDto) {
     return 'This action adds a new commit';
   }
@@ -14,13 +16,5 @@ export class CommitsService {
 
   findOne(id: number) {
     return `This action returns a #${id} commit`;
-  }
-
-  update(id: number, updateCommitDto: UpdateCommitDto) {
-    return `This action updates a #${id} commit`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} commit`;
   }
 }
