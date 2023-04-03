@@ -6,7 +6,7 @@ import { HttpModule } from '@nestjs/axios';
 @Module({
   imports: [
     HttpModule.register({
-      baseURL: 'https://api.github.com/',
+      baseURL: 'https://api.github.com',
     }),
   ],
   controllers: [CommitsController],
