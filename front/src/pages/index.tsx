@@ -2,9 +2,7 @@ import Head from 'next/head';
 import useSWR, { Fetcher } from 'swr';
 import { useState } from 'react';
 import { CommitResponse } from '@shared/entities/commit_response.interface';
-
-const fetcher: Fetcher<CommitResponse, string> = (url) =>
-  fetch(url, { mode: 'cors' }).then((res) => res.json());
+import { fetcher } from '@/lib/fetcher';
 
 export default function Home() {
   const defaultParams = {
