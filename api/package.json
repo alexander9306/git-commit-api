@@ -67,6 +67,10 @@
     "collectCoverageFrom": [
       "**/*.(t|j)s"
     ],
+    "moduleNameMapper": {
+      "^@/(.*)$": "<rootDir>/../src/$1",
+      "^@Helper/(.*)$": "<rootDir>/../src/common/helper/$1"
+    },
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
   }

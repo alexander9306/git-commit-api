@@ -1,8 +1,8 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { HttpService } from '@nestjs/axios';
 import { AxiosError } from 'axios';
-import { CommitResponse } from './entities/commit_response';
-import { Commit } from './entities/__external__commit.interface';
+import { CommitResponse } from '@shared/entities/commit_response.interface';
+import { Commit } from '@shared/entities/__external__commit.interface';
 import { catchError, firstValueFrom } from 'rxjs';
 
 @Injectable()
