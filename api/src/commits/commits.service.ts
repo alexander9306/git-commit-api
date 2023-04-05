@@ -29,7 +29,7 @@ export class CommitsService {
       },
       commits: data.map((commit) => ({
         id: commit.node_id,
-        url: commit.commit.url,
+        url: commit.html_url,
         message: commit.commit.message,
         date: commit.commit.committer.date,
         committer: {
