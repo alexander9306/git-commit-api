@@ -116,14 +116,18 @@ export default function Home() {
             </thead>
             <tbody>
               {data?.commits.map((commit) => (
-                <tr key={commit.id}>
+                <tr key={commit.id} className="hover:bg-stone-300">
                   <td className="border px-4 py-2">
                     {commit.date
                       ? new Date(commit.date).toLocaleString()
                       : 'N/A'}
                   </td>
                   <td className="border px-4 py-2">
-                    <a href={commit.url} target="_blank">
+                    <a
+                      href={commit.url}
+                      className="hover:text-sky-700"
+                      target="_blank"
+                    >
                       {commit.message}
                     </a>
                   </td>
